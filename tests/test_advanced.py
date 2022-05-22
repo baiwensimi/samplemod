@@ -2,15 +2,13 @@
 
 from .context import sample
 
-import unittest
+import pytest
 
 
-class AdvancedTestSuite(unittest.TestCase):
-    """Advanced test cases."""
+def test_thoughts():
+    sample.hmm()
 
-    def test_thoughts(self):
-        self.assertIsNone(sample.hmm())
-
-
-if __name__ == '__main__':
-    unittest.main()
+@pytest.mark.slow
+def test_slow():
+    for k in range(10000):
+        assert k == k
